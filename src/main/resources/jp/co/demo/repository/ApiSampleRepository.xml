@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="jp.co.demo.repository.ApiSampleRepository">
+
+    <resultMap id="Api_Sample_Result_Map" type="jp.co.demo.repository.ApiSampleModel">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="findUsers" parameterType="int" resultMap="Api_Sample_Result_Map">
+        select user_id, name_first, name_last, user_role from public.user_info
+    </select>
+
+    <select id="findById" parameterType="int" resultMap="Api_Sample_Result_Map">
+        select id, title, content from public.topics where id = #{id}
+    </select>
+    <insert id="insertTopic" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into public.topics (title,content)
+        values (#{title},#{content})
+    </insert>
+    <update id="updateTopic">
+        update public.topics set
+                          title = #{title},
+                          content = #{content}
+        where id = #{id}
+    </update>
+    <delete id="deleteTopic">
+        delete from public.topics
+        where id = #{id}
+    </delete>
+</mapper>

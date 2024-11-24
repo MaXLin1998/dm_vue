@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div id="appMember" class="container">
+  <!-- AppName -->
+  <div class="row p-4">
+    <h1>{{ appName }}</h1>
+  </div>
+
+  <!-- EditModal -->
+  <div id="editModal">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="label-name_last" class="col-form-label">姓:</label>
+            <input type="text" class="form-control" id="label-name_last" v-model="name_last">
+          </div>
+          <div class="mb-3">
+            <label for="label-name_first" class="col-form-label">名:</label>
+            <input type="text" class="form-control" id="label-name_first" v-model="name_first">
+          </div>
+          <div class="mb-3">
+            <label for="label-user_role" class="col-form-label">ロール:</label>
+            <input type="text" class="form-control" id="label-user_role" v-model="user_role">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button v-on:click="cancelUser(user_id)" class="btn btn-primary" data-bs-dismiss="modal">
+            キャンセル
+          </button>&nbsp;&nbsp;
+          <button v-on:click="updateUser(user_id)" class="btn btn-primary" data-bs-dismiss="modal">
+            更新
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- JavaScript -->
+<script src="//unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js" defer></script>
+<script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="/js/member.js" defer></script>
+</body>
+</html>
