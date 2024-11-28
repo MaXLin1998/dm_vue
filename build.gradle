@@ -38,10 +38,12 @@ dependencies {
 	implementation 'org.springframework:spring-aop:6.1.14'
 	implementation 'org.jetbrains:annotations:24.0.0'
 
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-json
-	implementation 'org.springframework.boot:spring-boot-starter-json:3.3.5'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-api
+	implementation 'io.jsonwebtoken:jjwt-api:0.12.6'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-impl
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6'
+	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6'
 
     runtimeOnly 'org.aspectj:aspectjweaver:1.9.22'
 

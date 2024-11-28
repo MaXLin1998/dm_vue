@@ -1,16 +1,12 @@
-package jp.co.demo.controller;
+package jp.co.demo.model;
 
 import lombok.Data;
 
 @Data
-public class RespInfo {
-    private int status;
-
+public class LoginForm {
     private String email;
 
     private String password;
 
     private String role;
-
-    private String token;
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="jp.co.demo.repository.UsersRepository">
+<mapper namespace="jp.co.demo.repository.UserRepository">
 
-<!--    <resultMap id="User_Result_Map" type="jp.co.demo.repository.UserModel">-->
+<!--    <resultMap id="User_Result_Map" type="jp.co.demo.model.UserModel">-->
 <!--        <id column="user_id" property="user_id" jdbcType="VARCHAR"/>-->
 <!--        <result column="name_last" property="name_last" jdbcType="VARCHAR"/>-->
 <!--        <result column="name_first" property="name_first" jdbcType="VARCHAR"/>-->
@@ -10,11 +10,11 @@
 <!--    </resultMap>-->
 
     <!-- 全件取得 -->
-    <select id="findUsers" parameterType="java.util.List" resultType="jp.co.demo.repository.UserModel">
+    <select id="findUsers" parameterType="java.util.List" resultType="jp.co.demo.model.UserModel">
         select user_id, name_first, name_last, user_role from public.user_info
     </select>
 
-    <select id="findByUserId" resultType="jp.co.demo.repository.UserModel">
+    <select id="findByUserId" resultType="jp.co.demo.model.UserModel">
         select user_id, name_first, name_last, user_role
         from public.user_info
         where user_id=#{userId}

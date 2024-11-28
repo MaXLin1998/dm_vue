@@ -1,11 +1,12 @@
 package jp.co.demo.repository;
 
+import jp.co.demo.model.UserModel;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-public interface UsersRepository {
+public interface UserRepository {
     List<UserModel> findUsers();
 
     UserModel findByUserId(String userId);

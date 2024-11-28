@@ -1,4 +1,4 @@
-package jp.co.demo.repository;
+package jp.co.demo.model;
 
 import lombok.Data;
 
