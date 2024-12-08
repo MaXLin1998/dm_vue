@@ -1,9 +1,12 @@
-【Java】JSONをJavaに、JavaをJSONにする　～GSONとJacksonの使用方法～
+1，【Java】JSONをJavaに、JavaをJSONにする　～GSONとJacksonの使用方法～
 https://qiita.com/riversun/items/cdd990e96c2bbf9cb043
 
 Beanマッピング(MapStruct)
 https://terasolunaorg.github.io/guideline/current/ja/ArchitectureInDetail/GeneralFuncDetail/BeanMapping.html#beanconverter-difference-item-xml-mapping-label
 
-Javaで便利な Beanマッピング ModelMapper
+2，Javaで便利な Beanマッピング ModelMapper
 https://qiita.com/euledge/items/482a113589015590cf19
+
+3，JsonNaming,JsonProperty,JsonIgnoreを一緒に使ったらどうなるのか試してみた
+https://qiita.com/MrMs/items/17b51a14f447d1f531d2
 
