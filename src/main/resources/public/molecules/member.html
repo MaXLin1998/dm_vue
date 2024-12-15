@@ -11,7 +11,15 @@
   <div class="row p-4">
     <h1>{{ appName }}</h1>
   </div>
-
+  <div>
+    <button v-on:click="backDownFun(this)" class="btn btn-primary" data-bs-dismiss="modal">
+      戻る
+    </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button v-on:click="logoutFun(this)" class="btn btn-primary" data-bs-dismiss="modal">
+      ログアウト
+    </button>
+  </div>
   <!-- EditModal -->
   <div id="editModal">
     <div class="modal-dialog modal-dialog-centered">
@@ -46,6 +54,8 @@
 <script src="//unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="//cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js" defer></script>
 <script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" defer></script>
-<script src="/js/member.js" defer></script>
+<script src="/static/js/vue/vue-router.global.js"></script>
+<script src="/static/js/common1.js" defer></script>
+<script src="/static/js/member.js" defer></script>
 </body>
 </html>

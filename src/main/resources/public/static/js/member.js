@@ -2,6 +2,10 @@ console.log("member.js!!");
 
 // 1, Vue.jsで扱うデータを用意する
 const userData = {
+    timer: null,
+    start: Date.now(),
+    timeoutDuration: 30000, // 30秒
+
     appName: "ユーザー詳細",// アプリ名
     user:{
         user_id: "",
@@ -27,14 +31,21 @@ const app = Vue.createApp({
         return userData;// 扱うデータを指定する
     },
     created(){
+        this.startTimeout();
         console.log("created!!");
         this.loadUser();// Load
+    },
+    mounted(){
+        this.eventFunc();
     },
     methods:{
         loadUser(){
             console.log("load detail member!!");
 
             this.user_id = localStorage.getItem("user_id");
+            const  userId = localStorage.getItem("userId");
+            alert("member->userId: "+userId);
+            alert("member->user_id: "+this.user_id);
 
             // Axios
             const url = "/v1/user?userId="+this.user_id;
@@ -85,6 +96,58 @@ const app = Vue.createApp({
                 console.log(err);
             });
         },
+
+        backDownFun(ev){
+            location.href = "/molecules/members.html";
+        },
+
+        logoutFun(ev){
+            localStorage.clear();
+            location.href = "/index.html";
+        },
+        handleTime() {
+            this.timePara.currentTime = new Date().getTime();
+            if (this.timePara.currentTime - this.timePara.lastTime > this.timePara.timeOut) {
+                localStorage.clear();
+                location.href = "/index.html";
+            } else {
+                this.timePara.lastTime = new Date().getTime();
+            }
+        },
+
+        // Set Session TimeOut
+        startTimeout() {
+            this.timer = setTimeout(() => {
+                this.handleTimeout();
+            }, this.timeoutDuration);
+        },
+        handleTimeout() {
+            // 超时后的操作，例如跳转到登录页面
+            // this.$router.push('/login');
+            // location.href = "./index.html";
+            this.logoutFun();
+        },
+        resetTimeout() {
+            const end = Date.now();
+            if (end - this.start > this.timeoutDuration) {
+                this.logoutFun();
+            } else {
+                clearTimeout(this.timer);
+                this.startTimeout();
+            }
+        },
+        eventFunc() {
+            window.addEventListener('mousemove', this.resetTimeout);
+            window.addEventListener('keydown', this.resetTimeout);
+        },
+        destroyFunc() {
+            window.removeEventListener('mousemove', this.resetTimeout);
+            window.removeEventListener('keydown', this.resetTimeout);
+        },
+    },
+    beforeDestroy() {
+        clearTimeout(this.timer);
+        this.destroyFunc();
     }
 });
 app.mount("#appMember");// 3, Vue.jsを起動する

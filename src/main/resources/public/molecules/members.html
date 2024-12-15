@@ -5,10 +5,12 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
 <!--  <script src="//unpkg.com/vue@3/dist/vue.global.js"></script>-->
-  <script src="/js/vue.global.js"></script>
-  <script src="/js/axios.min.js" defer></script>
+  <script src="//unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="/static/js/vue/vue-router.global.js"></script>
+  <script src="/static/js/vue/axios.min.js" defer></script>
   <script src="//cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" defer></script>
-  <script src="/js/members.js" defer></script>
+    <script src="/static/js/common1.js" defer></script>
+  <script src="/static/js/members.js" defer></script>
   <title>TTT</title>
 </head>
 <body>
@@ -28,6 +30,11 @@
 <!--    </button>-->
 <!--  </div>-->
   <!-- Members -->
+  <div>
+    <button v-on:click="logoutFun(this)" class="btn btn-primary" data-bs-dismiss="modal">
+      ログアウト
+    </button>
+  </div>
   <div class="row p-2">
     <table class="table table-striped table-light">
       <thead>
